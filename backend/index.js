@@ -58,6 +58,10 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   console.log("user connected");
   console.log("id of socket", socket.id);
+  socket.on("message", (data) => {
+    console.log("data from frontend", data);
+    io.to(data.room).emit("receive-message", data);
+  });
 });
 
 server.listen(PORT, async () => {
