@@ -16,7 +16,6 @@ const getAllTextController = async (req, res) => {
       client_id: el.client_id,
       chat_id: el.chat_id,
     }));
-    console.log("new arry", newArr);
     return res.status(200).json({ data: newArr, status: true });
   } catch (err) {
     return res?.status(500).json({ msg: err.message, status: false });

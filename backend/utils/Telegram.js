@@ -37,7 +37,6 @@ const postMessage = async ({ socket, body, chat_id, text }) => {
       },
       { new: true }
     );
-    console.log("ipdaee",updateClient)
   }
 };
 
@@ -46,6 +45,11 @@ const sendMessage = async ({ chat_id, text }) => {
     const res = await axios.post(
       `${BASE_URL}/sendMessage?chat_id=${chat_id}&text=${text}`
     );
+    // const res = await axios.post(`${BASE_URL}/sendPhoto`, {
+    //   chat_id: chat_id,
+    //   photo:
+    //     "",
+    // });
     console.log("message sent to", chat_id);
     return true;
   } catch (error) {
